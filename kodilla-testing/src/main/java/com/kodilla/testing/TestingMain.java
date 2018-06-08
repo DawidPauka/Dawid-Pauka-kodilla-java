@@ -23,7 +23,7 @@ public class TestingMain {
 
         int resultAdding = calculator.addAToB();
 
-        if (resultAdding == calculator.addAToB()){
+        if (result.equals("5041")){
             System.out.println("test OK for a + b = " + calculator.addAToB());
         } else {
             System.out.println("Error for test add!");
@@ -32,7 +32,7 @@ public class TestingMain {
 
         int resultSubstracting = calculator.substractBFromA();
 
-        if(result.equals("theForumUser")) {
+        if(result.equals("-3645")) {
             System.out.println("test OK for a - b = " + calculator.substractBFromA());
         }else {
             System.out.println("Error for test substract!");
