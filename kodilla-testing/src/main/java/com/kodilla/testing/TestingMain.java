@@ -23,19 +23,19 @@ public class TestingMain {
 
         int resultAdding = calculator.addAToB();
 
-        if (result.equals("theForumUser")){
-            System.out.println("test OK");
+        if (resultAdding == calculator.addAToB()){
+            System.out.println("test OK for a + b = " + calculator.addAToB());
         } else {
-            System.out.println("Error!");
+            System.out.println("Error for test add!");
 
         }
 
         int resultSubstracting = calculator.substractBFromA();
 
         if(result.equals("theForumUser")) {
-            System.out.println("test OK");
+            System.out.println("test OK for a - b = " + calculator.substractBFromA());
         }else {
-            System.out.println("Error!");
+            System.out.println("Error for test substract!");
         }
 
 
