@@ -1,6 +1,8 @@
 package com.kodilla.testing;
 
 import com.kodilla.testing.user.SimpleUser;
+import com.kodilla.testing.calculator.Calculator;
+
 
 public class TestingMain {
     public static void main(String[] args){
@@ -15,7 +17,19 @@ public class TestingMain {
         }
 
 
-        System.out.println("Test - pierwszy test jednostkowy:");
+        System.out.println("Zadanie 6.2: pierwszy test jednostkowy:");
+
+
+        Calculator calculator = new Calculator(698,4343);
+
+        int resultAdding = calculator.getResultAdd();
+        int resultSubstract = calculator.getResultSubstract();
+
+
+
+
+
+
 
 
     }
