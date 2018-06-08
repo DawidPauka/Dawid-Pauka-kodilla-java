@@ -16,17 +16,11 @@ public class Calculator{
         return a + b;
     }
 
-    public int substractBFromA(int a, int b){
+    public int substractBFromA(){
         return a - b;
     }
 
-    public int getResultAdd (){
-        return result = a + b;
 
-    }
-    public int getResultSubstract(){
-        return result = a - b;
-    }
 }
 
 

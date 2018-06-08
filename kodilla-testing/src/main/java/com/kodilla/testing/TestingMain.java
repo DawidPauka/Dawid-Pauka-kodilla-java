@@ -15,23 +15,31 @@ public class TestingMain {
         } else {
             System.out.println("Error!");
         }
-
-
+        System.out.println("");
         System.out.println("Zadanie 6.2: pierwszy test jednostkowy:");
 
 
         Calculator calculator = new Calculator(698,4343);
 
-        int resultAdding = calculator.getResultAdd();
-        int resultSubstract = calculator.getResultSubstract();
+        int resultAdding = calculator.addAToB();
 
+        if (result.equals("theForumUser")){
+            System.out.println("test OK");
+        } else {
+            System.out.println("Error!");
 
+        }
 
+        int resultSubstracting = calculator.substractBFromA();
 
-
-
+        if(result.equals("theForumUser")) {
+            System.out.println("test OK");
+        }else {
+            System.out.println("Error!");
+        }
 
 
     }
+
 }
 
