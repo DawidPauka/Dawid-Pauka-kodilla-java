@@ -30,7 +30,6 @@ public class CollectionTestSuite {
         ArrayList <Integer> results = new ArrayList<>();
         // Assert
         Assert.assertEquals(exterminatorTest.exterminate(newArrayListForClassOddNumbersExterminator), results);
-
         }
 
     @Test
@@ -40,7 +39,7 @@ public class CollectionTestSuite {
         // Arrange
         OddNumbersExterminator exterminatorTest = new OddNumbersExterminator();
 
-        // Act
+
         ArrayList <Integer> newArrayListForClassOddNumbersExterminator = new ArrayList<>();
 
         newArrayListForClassOddNumbersExterminator.add(2);
@@ -49,15 +48,16 @@ public class CollectionTestSuite {
         newArrayListForClassOddNumbersExterminator.add(4);
         newArrayListForClassOddNumbersExterminator.add(20);
 
-
-        ArrayList <Integer> results = new ArrayList<>();
-
-
-        results = exterminatorTest.exterminate(newArrayListForClassOddNumbersExterminator);
+        // Act
+        ArrayList <Integer> results = exterminatorTest.exterminate(newArrayListForClassOddNumbersExterminator);
 
 
         // Assert
-        Assert.assertEquals(exterminatorTest.exterminate(newArrayListForClassOddNumbersExterminator), results);
+        Assert.assertEquals( 2, 2);
+        Assert.assertEquals( 6, 6);
+        Assert.assertEquals( 4, 4);
+        Assert.assertEquals( 20, 20);
+        Assert.assertEquals( 1, 1);
 
     }
 }
