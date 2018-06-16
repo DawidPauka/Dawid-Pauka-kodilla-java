@@ -1,6 +1,6 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.userList;
 import com.kodilla.stream.forumuser.ForumUser;
 
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        Forum forum = new Forum();
+        userList forum = new userList();
         Map<Integer,ForumUser> usersById = forum.getUserList().stream()
                 .filter(user -> user.getSex() == 'M')
                 .filter(user -> Period.between(user.getBirthDate(),

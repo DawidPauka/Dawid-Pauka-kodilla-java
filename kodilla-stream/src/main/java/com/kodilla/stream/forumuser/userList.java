@@ -4,10 +4,10 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
-public final class Forum {
+public final class userList {
     private final List<ForumUser> UserList = new LinkedList<>();
 
-    public Forum() {
+    public userList() {
         UserList.add(
                 new ForumUser("Paulina", 'M', LocalDate.parse("1864-05-15"), 22));
         UserList.add(
