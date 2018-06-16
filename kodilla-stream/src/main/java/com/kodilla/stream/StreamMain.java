@@ -1,34 +1,25 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.immutable.ForumUser;
-import com.kodilla.stream.iterate.NumbersGenerator;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class StreamMain {
-
     public static void main(String[] args) {
+        Forum forum = new Forum();
+        Map<Integer,ForumUser> usersById = forum.getUserList().stream()
+                .filter(user -> user.getSex() == 'M')
+                .filter(user -> Period.between(user.getBirthDate(),
+                        LocalDate.now()).getYears() > 19)
+                .filter(user -> user.getPostCount() > 0)
+                .collect(Collectors.toMap(user -> user.getId(), user -> user));
 
-
-        System.out.println("WE START!" );
-
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-
-        // Expression with lambda
-        System.out.println(poemBeautifier.beautify("♣ABCDEFG♣", simpleText -> simpleText.toLowerCase()));
-        System.out.println(poemBeautifier.beautify("••abcdefgh••", simpleText -> simpleText.toUpperCase()));
-
-        // Expression with method reference
-        poemBeautifier.beautify("Java", String::toUpperCase);
-        poemBeautifier.beautify("Test Programming", PoemBeautifier.MyBeautyfier1::beauteText);
-        poemBeautifier.beautify("SOFTWARE IS GOOD", String::toLowerCase);
-        poemBeautifier.beautify("ABC", PoemBeautifier.MyBeautyfier1::beauteText2);
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
-
-
-
+        usersById.entrySet().stream()
+                .forEach(System.out::println);
     }
 }
-
