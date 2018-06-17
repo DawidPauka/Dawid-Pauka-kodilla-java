@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static junit.framework.TestCase.failNotEquals;
+
 
 public class CollectionTestSuite {
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.stream.array.ArrayOperationsTestSuite" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-06-17T02:12:52" hostname="AGROFORST" time="0.013">
+  <properties/>
+  <testcase name="testGetAverageSeveralElements" classname="com.kodilla.stream.array.ArrayOperationsTestSuite" time="0.011"/>
+  <testcase name="testGetAverageNullArgument" classname="com.kodilla.stream.array.ArrayOperationsTestSuite" time="0.0"/>
+  <testcase name="testGetAverageOneElement" classname="com.kodilla.stream.array.ArrayOperationsTestSuite" time="0.0"/>
+  <testcase name="testGetAverageEmptyArray" classname="com.kodilla.stream.array.ArrayOperationsTestSuite" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
