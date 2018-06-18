@@ -1,81 +1,65 @@
 package com.kodilla.testing.collection;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
-
+import org.junit.After;
+import org.junit.Before;
+import java.util.Random;
+import org.junit.Assert;
 import java.util.ArrayList;
-
-import static junit.framework.TestCase.failNotEquals;
 
 
 public class CollectionTestSuite {
 
+    @Before
+    public void before() {
 
-    @BeforeClass
-    public static void beforeClass() {
-        System.out.println("Test Set: begin");
+        System.out.println("Case Test: ♣ BEGIN ♣ ");
     }
 
-    @AfterClass
-    public static void afterClass() {
-        System.out.println("Test Set: end");
+    @After
+    public void after() {
+
+        System.out.println("Case Test: • END • ");
     }
 
     @Test
-
     public void testOddNumbersExterminatorEmptyList() {
 
-        // Arrange
-        OddNumbersExterminator exterminatorTest = new OddNumbersExterminator();
-        // Act
-        ArrayList<Integer> newArrayListForClassOddNumbersExterminator = new ArrayList<>();
-        ArrayList<Integer> results = new ArrayList<>();
-        // Assert
-        Assert.assertEquals(exterminatorTest.exterminate(newArrayListForClassOddNumbersExterminator), results);
+        //Given//
+        ArrayList<Integer> emptyList = new ArrayList<>();
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+
+        //When//
+        boolean result = exterminator.exterminate(emptyList).isEmpty();
+
+        //Then//
+        Assert.assertTrue(result);
     }
 
     @Test
-
     public void testOddNumbersExterminatorNormalList() {
 
-        // Arrange
-        OddNumbersExterminator exterminatorTest = new OddNumbersExterminator();
+        //Given//
+        ArrayList<Integer> theList = new ArrayList<Integer>();
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        Random theGenerator = new Random();
 
-
-        ArrayList<Integer> newArrayListForClassOddNumbersExterminator = new ArrayList<>();
-
-        newArrayListForClassOddNumbersExterminator.add(2);
-        newArrayListForClassOddNumbersExterminator.add(1);
-        newArrayListForClassOddNumbersExterminator.add(6);
-        newArrayListForClassOddNumbersExterminator.add(4);
-        newArrayListForClassOddNumbersExterminator.add(20);
-
-        // Act
-        ArrayList<Integer> results = exterminatorTest.exterminate(newArrayListForClassOddNumbersExterminator);
-
-        // Assert
-
-        Assert.assertEquals(4, results.size());
-
-        Assert.assertEquals(java.util.Optional.of(2), results.get(0));
-        Assert.assertEquals(java.util.Optional.of(6), results.get(1));
-        Assert.assertEquals(java.util.Optional.of(4), results.get(2));
-        Assert.assertEquals(java.util.Optional.of(20), results.get(3));
-
-
-        Assert.assertEquals(2, 2);
-        Assert.assertEquals(6, 6);
-        Assert.assertEquals(4, 4);
-        Assert.assertEquals(20, 20);
-        Assert.assertEquals(1, 1);
-
-    }
-
-
-    static public void assertEquals(String message, long expected, long actual) {
-        if (expected != actual) {
-            failNotEquals(message, Long.valueOf(expected), Long.valueOf(actual));
+        for(int n=0; n<1000000; n++){
+            theList.add(theGenerator.nextInt(1000000));
         }
+
+        //When//
+        boolean result1 = exterminator.exterminate(theList).contains(5671);
+        boolean result2 = exterminator.exterminate(theList).contains(4893);
+        boolean result3 = exterminator.exterminate(theList).contains(10001);
+        boolean result4 = exterminator.exterminate(theList).contains(99999);
+        boolean result5 = exterminator.exterminate(theList).contains(66669);
+
+        //Then - sprawdzam czy lista posiada powyższe liczby nieparzyste//
+        Assert.assertFalse(result1);
+        Assert.assertFalse(result2);
+        Assert.assertFalse(result3);
+        Assert.assertFalse(result4);
+        Assert.assertFalse(result5);
     }
 }
