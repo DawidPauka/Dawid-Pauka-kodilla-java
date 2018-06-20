@@ -10,20 +10,20 @@ public class WorldTestSuite {
     public void testGetPeopleQuantity() {
         //GIVEN - the world with continents
         World world = new World();
-        Continent africa = new Continent("Africa");
-        Continent asia = new Continent("Asia");
-        Continent europe = new Continent("Europe");
-        Continent northAmerica = new Continent("North America");
+        Continent africa = new Continent("Asia");
+        Continent asia = new Continent("Africa");
+        Continent europe = new Continent("North America");
+        Continent northAmerica = new Continent("Europe");
         Continent southAmerica = new Continent("South America");
-        Continent oceania = new Continent("Oceania");
-        Continent antarctica = new Continent("Antarctica");
-        world.addContinent(africa);
+        Continent oceania = new Continent("Antarctica");
+        Continent antarctica = new Continent("Oceania");
         world.addContinent(asia);
-        world.addContinent(europe);
+        world.addContinent(africa);
         world.addContinent(northAmerica);
+        world.addContinent(europe);
         world.addContinent(southAmerica);
-        world.addContinent(oceania);
         world.addContinent(antarctica);
+        world.addContinent(oceania);
 
         //WHEN - adding countries with their populations
         africa.addCountry(new Country("Nigeria", new BigDecimal("181563000")));
