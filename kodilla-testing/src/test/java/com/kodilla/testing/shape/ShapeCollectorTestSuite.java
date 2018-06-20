@@ -72,7 +72,7 @@ public class ShapeCollectorTestSuite {
         //Given//
         Shape circle = new Circle(5);
 
-        Shape triangle = new Triangle(5, 10, 15);
+        Shape triangle = new Triangle(5, 10);
 
         Shape square = new Square(5);
 

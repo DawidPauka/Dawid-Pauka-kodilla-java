@@ -1,10 +1,11 @@
 package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ShapeCollector {
 
-    private ArrayList<Shape> shapes = new ArrayList<Shape>();
+    private List<Shape> shapes = new ArrayList<>();
 
     private Shape shape;
 
@@ -12,7 +13,6 @@ public class ShapeCollector {
         this.shape = shape;
     }
 
-    //metody//
 
     public void addFigure(Shape shape) {
 

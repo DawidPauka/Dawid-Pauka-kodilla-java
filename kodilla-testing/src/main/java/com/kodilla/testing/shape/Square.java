@@ -2,7 +2,7 @@ package com.kodilla.testing.shape;
 
 public class Square implements Shape {
 
-    double sideLenght;
+    private double sideLenght;
 
     public Square(double sideLenght) {
         this.sideLenght = sideLenght;
@@ -10,6 +10,18 @@ public class Square implements Shape {
 
     public double getSideLenght() {
         return sideLenght;
+    }
+
+    public String getShapeName() {
+
+        return "Square";
+
+    }
+
+    public double getField() {
+
+        return sideLenght * sideLenght;
+
     }
 
     @Override
@@ -35,15 +47,5 @@ public class Square implements Shape {
                 '}';
     }
 
-    public String getShapeName() {
 
-        return "Square";
-
-    }
-
-    public double getField() {
-
-        return sideLenght * sideLenght;
-
-    }
 }
