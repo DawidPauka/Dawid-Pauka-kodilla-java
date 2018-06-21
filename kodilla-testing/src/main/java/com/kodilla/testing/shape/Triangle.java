@@ -29,7 +29,7 @@ public   class Triangle implements Shape {
 
     public double getField() {
 
-        return sideA * height;
+        return sideA * height * 0.5;
 
     }
     @Override

@@ -8,8 +8,9 @@ public final class Country {
 
     public Country(final String name, final BigDecimal peopleQuantity) {
         if (name == null || name.isEmpty() || peopleQuantity == null
-                || peopleQuantity.signum() != 1)
+        || peopleQuantity.signum() != 1) {
             throw new IllegalArgumentException();
+        }
         this.name = name;
         this.peopleQuantity = peopleQuantity;
     }

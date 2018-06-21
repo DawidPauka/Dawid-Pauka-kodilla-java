@@ -7,12 +7,6 @@ public class ShapeCollector {
 
     private List<Shape> shapes = new ArrayList<>();
 
-    private Shape shape;
-
-    public ShapeCollector(Shape shape) {
-        this.shape = shape;
-    }
-
 
     public void addFigure(Shape shape) {
 
@@ -21,37 +15,33 @@ public class ShapeCollector {
     }
 
     public boolean removeFigure(Shape shape) {
-
-        boolean result = false;
         if(shapes.contains(shape)) {
             shapes.remove(shape);
-            result = true;
+            return true;
         }
-
-        return result;
+        return false;
 
     }
 
     public Shape getFigure(int n) {
 
-        Shape figure = null;
-
         if(n >= 0 && n < shapes.size()) {
-
-            figure = shapes.get(n);
+            return shapes.get(n);
         }
 
-        return figure;
-
+        return null;
     }
 
+
+
+
     public void showFigures() {
+        for (Shape shape : shapes) {
+            System.out.println("Element : " + shape);
+        }
 
         for(int n=0; n < shapes.size(); n++) {
-
-            Shape obiekt = shapes.get(n);
-
-            System.out.println("Element " + n + " : " + obiekt);
+            System.out.println("Element " + n + " : " + shapes.get(n));
         }
 
     }

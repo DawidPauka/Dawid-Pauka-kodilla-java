@@ -17,15 +17,6 @@ public class WorldTestSuite {
         Continent southAmerica = new Continent("South America");
         Continent oceania = new Continent("Antarctica");
         Continent antarctica = new Continent("Oceania");
-        world.addContinent(asia);
-        world.addContinent(africa);
-        world.addContinent(northAmerica);
-        world.addContinent(europe);
-        world.addContinent(southAmerica);
-        world.addContinent(antarctica);
-        world.addContinent(oceania);
-
-        //WHEN - adding countries with their populations
         africa.addCountry(new Country("Nigeria", new BigDecimal("181563000")));
         africa.addCountry(new Country("Ethiopia", new BigDecimal("99391000")));
         africa.addCountry(new Country("Egypt", new BigDecimal("89125000")));
@@ -52,6 +43,16 @@ public class WorldTestSuite {
         oceania.addCountry(new Country("New Zealand", new BigDecimal("4579000")));
         oceania.addCountry(new Country("*The rest of Oceania", new BigDecimal("3181060")));
 
+        world.addContinent(asia);
+        world.addContinent(africa);
+        world.addContinent(northAmerica);
+        world.addContinent(europe);
+        world.addContinent(southAmerica);
+        world.addContinent(antarctica);
+        world.addContinent(oceania);
+
+        //WHEN - adding countries with their populations
+        BigDecimal allThePeople = world.getPeopleQuantity();
         //THEN
         assertEquals(new BigDecimal("7531843865"), world.getPeopleQuantity());
     }

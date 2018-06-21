@@ -10,10 +10,6 @@ public final class Continent {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void addCountry(Country country) {
         if (country == null) {
             throw new IllegalArgumentException();
