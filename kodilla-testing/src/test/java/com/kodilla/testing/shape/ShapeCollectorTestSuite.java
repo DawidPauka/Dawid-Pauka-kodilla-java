@@ -12,7 +12,7 @@ public class ShapeCollectorTestSuite {
         //Given//
         Shape circle = new Circle(5);
 
-        ShapeCollector collector = new ShapeCollector(circle);
+        ShapeCollector collector = new ShapeCollector( );
 
         collector.addFigure(circle);
 
@@ -31,7 +31,7 @@ public class ShapeCollectorTestSuite {
         //Given//
         Shape circle = new Circle(5);
 
-        ShapeCollector collector = new ShapeCollector(circle);
+        ShapeCollector collector = new ShapeCollector( );
 
         //When//
         boolean result = collector.removeFigure(circle);
@@ -49,7 +49,7 @@ public class ShapeCollectorTestSuite {
         //Given//
         Shape circle = new Circle(100);
 
-        ShapeCollector collector = new ShapeCollector(circle);
+        ShapeCollector collector = new ShapeCollector( );
 
         collector.addFigure(circle);
 
@@ -76,7 +76,7 @@ public class ShapeCollectorTestSuite {
 
         Shape square = new Square(5);
 
-        ShapeCollector collector = new ShapeCollector(circle);
+        ShapeCollector collector = new ShapeCollector( );
 
         collector.addFigure(circle);
         collector.addFigure(triangle);

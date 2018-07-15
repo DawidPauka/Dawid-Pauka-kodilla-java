@@ -20,5 +20,16 @@ public final class ForumUser {
     public String getRealName() {
         return realName;
     }
+
+    public void addPost(String mrsmith, String s) {
+    }
+
+    public int getPostsQuantity() {
+        return 0;
+    }
+
+    public int getCommentsQuantity() {
+        return 0;
+    }
 }
 
