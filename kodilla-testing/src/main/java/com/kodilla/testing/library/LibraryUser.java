@@ -1,11 +1,15 @@
 package com.kodilla.testing.library;
 
 public class LibraryUser {
-    String firstname;
-    String lastname;
-    String peselId;
+    private String firstname;
+    private String lastname;
+    private String peselId;
 
     public LibraryUser(String firstname, String lastname, String peselId) {
+        if (firstname == null || firstname.isEmpty() || lastname == null || lastname.isEmpty()
+                || peselId == null || !peselId.matches("\\d{11}") ) {
+            throw new IllegalArgumentException("bad argument(s)");
+        }
         this.firstname = firstname;
         this.lastname = lastname;
         this.peselId = peselId;
