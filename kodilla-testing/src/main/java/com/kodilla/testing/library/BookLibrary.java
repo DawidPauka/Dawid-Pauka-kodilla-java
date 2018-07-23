@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookLibrary {
+
     LibraryDatabase libraryDatabase;
 
     public BookLibrary(LibraryDatabase libraryDatabase) {
@@ -11,10 +12,7 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksWithCondition(String titleFragment) {
-        if (titleFragment == null) {
-            throw new IllegalArgumentException("null argument");
-        }
-        List<Book> bookList = new ArrayList<>();
+        List<Book> bookList = new ArrayList<Book>();
         if (titleFragment.length() < 3) return bookList;
         List<Book> resultList = libraryDatabase
                 .listBooksWithCondition(titleFragment);
@@ -23,10 +21,9 @@ public class BookLibrary {
         return bookList;
     }
 
-    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        if (libraryUser == null) {
-            throw new IllegalArgumentException("null argument");
-        }
-        return libraryDatabase.listBooksInHandsOf(libraryUser);
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
+        List<Book>libraryUserBooksInHandsOf = libraryDatabase.listBooksInHandsOf(libraryUser);
+
+        return libraryUserBooksInHandsOf;
     }
 }

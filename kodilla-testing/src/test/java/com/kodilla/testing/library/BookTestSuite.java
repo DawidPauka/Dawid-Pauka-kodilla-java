@@ -1,6 +1,6 @@
 package com.kodilla.testing.library;
 
-public class Book {
+public class BookTestSuite {
     String title;
     String author;
     int publicationYear;
