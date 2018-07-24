@@ -19,7 +19,7 @@ public class Board {
         return inProgressList;
     }
 
-    public TaskList getDoneList() {
+    public TaskList testGetDoneList() {
         return doneList;
     }
 }

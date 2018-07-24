@@ -23,11 +23,11 @@ public class BoardTestSuite {
         String taskDone = "task done";
         board.getToDoList().addTask(taskToDo);
         board.getInProgressList().addTask(taskInProgress);
-        board.getDoneList().addTask(taskDone);
+        board.testGetDoneList().addTask(taskDone);
 
         //Then
         Assert.assertEquals("task to do", board.getToDoList().getTasks().get(0));
         Assert.assertEquals("task in progress", board.getInProgressList().getTasks().get(0));
-        Assert.assertEquals("task done", board.getDoneList().getTasks().get(0));
+        Assert.assertEquals("task done", board.testGetDoneList().getTasks().get(0));
     }
 }
