@@ -21,13 +21,13 @@ public class BoardTestSuite {
         String taskToDo = "task to do";
         String taskInProgress = "task in progress";
         String taskDone = "task done";
-        board.getToDoList().addTask(taskToDo);
-        board.getInProgressList().addTask(taskInProgress);
-        board.testGetDoneList().addTask(taskDone);
+        board.toDoList().addTask(taskToDo);
+        board.inProgressList().addTask(taskInProgress);
+        board.doneList().addTask(taskDone);
 
         //Then
-        Assert.assertEquals("task to do", board.getToDoList().getTasks().get(0));
-        Assert.assertEquals("task in progress", board.getInProgressList().getTasks().get(0));
-        Assert.assertEquals("task done", board.testGetDoneList().getTasks().get(0));
+        Assert.assertEquals("task to do", board.toDoList().getTasks().get(0));
+        Assert.assertEquals("task in progress", board.inProgressList().getTasks().get(0));
+        Assert.assertEquals("task done", board.doneList().getTasks().get(0));
     }
 }
