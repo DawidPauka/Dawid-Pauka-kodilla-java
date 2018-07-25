@@ -40,7 +40,7 @@ public class Bigmac {
         }
     }
 
-    public Bigmac(RollType roll, int burgers, SauceType sauce, List<IngredientsType> ingredients) {
+    private Bigmac(RollType roll, int burgers, SauceType sauce, List<IngredientsType> ingredients) {
         this.roll = roll;
         this.burgers = burgers;
         this.sauce = sauce;

@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class BigmacTestSuite {
     @Test
-    public void testBigmackNew() {
+    public void testBigmac() {
         //Given
         Bigmac bigmac = new Bigmac.BigmacBuilder()
                 .roll(RollType.STANDARD)
