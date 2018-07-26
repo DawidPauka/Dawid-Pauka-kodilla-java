@@ -1,37 +1,24 @@
 package com.kodilla.testing.shape;
 
-public   class Triangle implements Shape {
-
-    private double sideA;
+public class Triangle implements Shape {
+    private double base;
     private double height;
 
-
-    public Triangle(double sideA, double height) {
-        this.sideA = sideA;
+    public Triangle(double base, double height) {
+        this.base = base;
         this.height = height;
-
     }
 
-    public double getSideA() {
-        return sideA;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-
+    @Override
     public String getShapeName() {
-
-        return "TRIANGLE";
-
+        return "Triangle";
     }
 
+    @Override
     public double getField() {
-
-        return sideA * height * 0.5;
-
+        return base * height / 2;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,8 +26,7 @@ public   class Triangle implements Shape {
 
         Triangle triangle = (Triangle) o;
 
-        if (Double.compare(triangle.sideA, sideA) != 0) return false;
-        if (Double.compare(triangle.height, height) != 0) return false;
+        if (Double.compare(triangle.base, base) != 0) return false;
         return Double.compare(triangle.height, height) == 0;
     }
 
@@ -48,20 +34,10 @@ public   class Triangle implements Shape {
     public int hashCode() {
         int result;
         long temp;
-        temp = Double.doubleToLongBits(sideA);
+        temp = Double.doubleToLongBits(base);
         result = (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(height);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "TRIANGLE {" +
-                " side A = " + sideA +
-                ", height = " + height +
-                '}';
-    }
-
-
 }
