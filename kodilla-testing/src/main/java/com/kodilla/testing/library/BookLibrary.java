@@ -10,12 +10,12 @@ public class BookLibrary {
         this.libraryDatabase = libraryDatabase;
     }
 
-    public List<Book> listBooksWithCondition_KLASA(String titleFragment) {
+    public List<Book> listBooksWithCondition(String titleFragment) {
         List<Book> bookList = new ArrayList<>();
         if (titleFragment.length() < 3) {
             return bookList;
         }
-        List<Book> resultList = libraryDatabase.listBooksWithCondition_INTERFEJS(titleFragment);
+        List<Book> resultList = libraryDatabase.listBooksWithCondition(titleFragment);
         if (resultList.size() > 20) {
             return bookList;
         }
@@ -23,7 +23,7 @@ public class BookLibrary {
         return bookList;
     }
 
-    public List<Book> listBooksInHandsOf_KLASA(LibraryUser libraryUser) {
-        return libraryDatabase.listBooksInHandsOf_INTERFEJS(libraryUser);
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
     }
 }
