@@ -24,31 +24,31 @@ public class LibraryUser {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        LibraryUser that = (LibraryUser) o;
-
-        if (!getFirstname().equals(that.getFirstname())) return false;
-        if (!getLastname().equals(that.getLastname())) return false;
-        return getPeselId().equals(that.getPeselId());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getFirstname().hashCode();
-        result = 31 * result + getLastname().hashCode();
-        result = 31 * result + getPeselId().hashCode();
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "LibraryUser{" +
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", peselId='" + peselId + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        LibraryUser that = (LibraryUser) o;
+
+        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+        if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
+        return peselId != null ? peselId.equals(that.peselId) : that.peselId == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstname != null ? firstname.hashCode() : 0;
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (peselId != null ? peselId.hashCode() : 0);
+        return result;
     }
 }
