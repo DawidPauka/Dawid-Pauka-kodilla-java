@@ -19,7 +19,7 @@ public class BoardConfig {
     public TaskList inProgressList() {
         return new TaskList();
     }
-
+    @Bean
     public TaskList doneList() {
         return new TaskList();
     }
