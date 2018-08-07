@@ -1,0 +1,24 @@
+Zadanie wyświetlamy zadania na listach zadań
+
+// 1.Listę zadań z tabeli ISSUESS z dołączonymi do nich nazwami list zadań z tabeli ISSUESLISTS//
+
+SELECT I.ISSUESLIST_ID, ISS.NAME
+FROM ISSUESS I, ISSUESLISTS ISS
+WHERE I.ID = ISS.ID;
+
+
+// 2. Listę zadań z tabeli ISSUESS z przypisanymi do nich użytkownikami z tabeli USERS//
+
+
+SELECT I.ISSUESLIST_ID, U.FIRSTNAME, U.LASTNAME
+FROM ISSUESS I, USERS U
+WHERE I.ID = U.ID;
+
+// 3.Imiona i nazwiska użytkowników posiadających zadania, wraz z informacją o ilości zadań, które są do nich przypisane //
+
+SELECT U.FIRSTNAME, U.LASTNAME,   COUNT(*) AS USERS_WITH_TASK
+FROM ISSUESS I, USERS U
+WHERE I.ID = U.ID
+GROUP BY I.ID
+HAVING COUNT(*) >= 1
+ORDER BY U.LASTNAME, U.FIRSTNAME;
