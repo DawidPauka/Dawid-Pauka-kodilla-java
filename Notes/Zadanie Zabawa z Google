@@ -1,0 +1,29 @@
+\\ Zadanie Zabawa z Google \\
+
+\\HTML\\
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+    <head>
+        <title>Kodilla is the best</title>
+    </head>
+    <body bgcolor="red" text="red"><font size="7">
+        <h1>Kodilla Course</h1>
+        <h3>Something new!</h3>
+    </body>
+</html>
+
+
+\\CSS\\
+
+
+body {
+   background-color: grey;
+}
+
+h1 {
+   text-align: center;
+}
