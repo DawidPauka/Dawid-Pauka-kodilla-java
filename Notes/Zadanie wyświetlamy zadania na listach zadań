@@ -2,17 +2,17 @@ Zadanie wyświetlamy zadania na listach zadań
 
 // 1.Listę zadań z tabeli ISSUESS z dołączonymi do nich nazwami list zadań z tabeli ISSUESLISTS//
 
-SELECT ISSUESLIST_ID, NAME
+SELECT ISSUESS.ID, NAME
 FROM ISSUESS, ISSUESLISTS
-WHERE ISSUESS.ID = ISSUESLISTS.ID;
+WHERE ISSUESS.ISSUESLIST_ID = ISSUESLISTS.ID;
 
 
 // 2. Listę zadań z tabeli ISSUESS z przypisanymi do nich użytkownikami z tabeli USERS//
 
 
-SELECT ISSUESLIST_ID, FIRSTNAME, LASTNAME
+SELECT ISSUESS.ID, FIRSTNAME, LASTNAME
 FROM ISSUESS, USERS
-WHERE ISSUESS.ID = USERS.ID;
+WHERE ISSUESS.USER_ID_ASSIGNEDTO  = USERS.ID;
 
 // 3.Imiona i nazwiska użytkowników posiadających zadania, wraz z informacją o ilości zadań, które są do nich przypisane //
 
