@@ -4,7 +4,7 @@ Zadanie wyświetlamy zadania na listach zadań
 
 SELECT ISSUESLIST_ID, NAME
 FROM ISSUESS, ISSUESLISTS
-WHERE ISSUESS.ISSUESLIST_ID = ISSUESLISTS.ID;
+WHERE ISSUESS.ID = ISSUESLISTS.ID;
 
 
 // 2. Listę zadań z tabeli ISSUESS z przypisanymi do nich użytkownikami z tabeli USERS//
@@ -12,7 +12,7 @@ WHERE ISSUESS.ISSUESLIST_ID = ISSUESLISTS.ID;
 
 SELECT ISSUESLIST_ID, FIRSTNAME, LASTNAME
 FROM ISSUESS, USERS
-WHERE ISSUESS.ISSUESLIST_ID = USERS.ID;
+WHERE ISSUESS.ID = USERS.ID;
 
 // 3.Imiona i nazwiska użytkowników posiadających zadania, wraz z informacją o ilości zadań, które są do nich przypisane //
 
