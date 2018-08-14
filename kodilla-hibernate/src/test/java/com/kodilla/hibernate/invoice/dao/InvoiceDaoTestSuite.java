@@ -21,6 +21,8 @@ import java.util.List;
 public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
+    @Autowired
+    ProductDao productDao;
 
     @Test
     public void testInvoiceDaoSave() {
@@ -50,6 +52,8 @@ public class InvoiceDaoTestSuite {
         invoiceDao.save(invoice);
         int invoiceId = invoice.getId();
         int itemSize = invoice.getItems().size();
+        productDao.save(bread);
+        int idP = bread.getId();
 
         Invoice invoiceReadFromDB = invoiceDao.findById(invoiceId);
 
@@ -57,5 +61,13 @@ public class InvoiceDaoTestSuite {
         Assert.assertEquals(invoiceId, invoiceReadFromDB.getId());
         Assert.assertEquals(3, itemSize);
         Assert.assertEquals(itemSize, invoiceReadFromDB.getItems().size());
+        Assert.assertNotEquals( 0,idP);
+
+        //CleanUp
+        productDao.delete(idP);
+        invoiceDao.delete(invoiceId);
+
+
+
     }
 }
