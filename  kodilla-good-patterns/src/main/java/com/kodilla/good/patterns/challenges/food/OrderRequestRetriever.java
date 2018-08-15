@@ -6,8 +6,8 @@ import java.util.Map;
 public class OrderRequestRetriever {
     public OrderRequest retrieve() {
         Map<Product, Integer> productsToOrder = new HashMap<>();
-        productsToOrder.put(new Product("bread"), 5);
-        productsToOrder.put(new Product("butter"), 10);
+        productsToOrder.put(new Product("milk"), 5);
+        productsToOrder.put(new Product("coffee"), 3);
 
         return new OrderRequest(productsToOrder);
     }
