@@ -1,13 +1,15 @@
 package com.kodilla.patterns.prototype.library;
 
+import com.kodilla.patterns.prototype.Prototype;
+
 import java.util.HashSet;
 import java.util.Set;
 
-public final class Library implements Cloneable {
-    private String name;
-    private Set<Book> books = new HashSet<>();
+public final class Library extends Prototype {
+    String name;
+    Set<Book> books = new HashSet<>();
 
-    public Library(final String name) {
+    public Library(String name) {
         this.name = name;
     }
 
@@ -23,37 +25,15 @@ public final class Library implements Cloneable {
         return books;
     }
 
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
-
-    public boolean addBook(Book book) {
-        return books.add(book);
-    }
-
-    public boolean removeBook(Book book) {
-        return books.remove(book);
-    }
-
-    @Override
-    public String toString() {
-        return "Library{" +
-                "name='" + name + '\'' +
-                ", books=" + books +
-                '}';
-    }
-
     public Library shallowCopy() throws CloneNotSupportedException {
         return (Library) super.clone();
     }
 
     public Library deepCopy() throws CloneNotSupportedException {
-        Library clonedLibrary = (Library) super.clone();
-
-        clonedLibrary.setBooks(new HashSet<>());
-
-        for (Book book : getBooks()) {
-            clonedLibrary.addBook(new Book(book.getTitle(), book.getAuthor(), book.getPublicationDate()));
+        Library clonedLibrary = (Library)super.clone();
+        clonedLibrary.books = new HashSet<>();
+        for (Book theBook: books) {
+            clonedLibrary.getBooks().add(theBook);
         }
         return clonedLibrary;
     }

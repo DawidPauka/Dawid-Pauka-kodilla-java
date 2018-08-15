@@ -4,47 +4,42 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.time.Month;
 
 public class LibraryTestSuite {
 
     @Test
-    public void testGetBooks() {
-
+    public void testGetBooks(){
         //Given
-        Library library = new Library("my Library");
-        Book book1 = new Book("Secrets of Alamo", "John Smith", LocalDate.of(2008, Month.OCTOBER, 15));
-        Book book2 = new Book("Secretaries and Directors", "Dilbert Michigan", LocalDate.of(2012, Month.DECEMBER, 12));
-        Book book3 = new Book("Secret life of programmers", "Steve Wolkowitz", LocalDate.of(2016, Month.FEBRUARY, 20));
-        Book book4 = new Book("Secrets of Java", "Ian Tenewitch", LocalDate.of(2010, Month.AUGUST, 10));
-
-        library.addBook(book1);
-        library.addBook(book2);
-        library.addBook(book3);
-        library.addBook(book4);
+        Library library = new Library("Księgozbiór");
+        Book book1 = new Book("Tytuł 1","Autor 1",LocalDate.of(1987,1,1));
+        library.getBooks().add(book1);
+        library.getBooks().add(new Book("Tytuł 2","Autor 2",LocalDate.of(2017,11,13)));
+        library.getBooks().add(new Book("Tytuł 3","Autor 3",LocalDate.of(1999,7,22)));
 
         Library clonedLibrary = null;
         try {
             clonedLibrary = library.shallowCopy();
-            clonedLibrary.setName("my Library - shallow copy");
+            clonedLibrary.setName("Płytko sklonowany Księgozbiór");
         } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
 
         Library deepClonedLibrary = null;
         try {
             deepClonedLibrary = library.deepCopy();
-            deepClonedLibrary.setName("my Library - deep copy");
+            deepClonedLibrary.setName("Głęboko sklonowany Księgozbiór");
         } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
 
         //When
-        library.removeBook(book4);
+        library.getBooks().remove(book1);
 
         //Then
-        Assert.assertEquals(3, library.getBooks().size());
-        Assert.assertEquals(3, clonedLibrary.getBooks().size());
-        Assert.assertEquals(4, deepClonedLibrary.getBooks().size());
+        Assert.assertEquals(2, library.getBooks().size());
+        Assert.assertEquals(2, clonedLibrary.getBooks().size());
+        Assert.assertEquals(3, deepClonedLibrary.getBooks().size());
+        Assert.assertEquals(library.getBooks().size(),clonedLibrary.getBooks().size());
+        Assert.assertNotEquals(library.getBooks().size(),deepClonedLibrary.getBooks().size());
     }
 }

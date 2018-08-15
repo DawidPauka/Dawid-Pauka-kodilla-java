@@ -33,24 +33,4 @@ public final class Book {
                 ", publicationDate=" + publicationDate +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Book book = (Book) o;
-
-        if (!getTitle().equals(book.getTitle())) return false;
-        if (!getAuthor().equals(book.getAuthor())) return false;
-        return getPublicationDate().equals(book.getPublicationDate());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getTitle().hashCode();
-        result = 31 * result + getAuthor().hashCode();
-        result = 31 * result + getPublicationDate().hashCode();
-        return result;
-    }
 }
