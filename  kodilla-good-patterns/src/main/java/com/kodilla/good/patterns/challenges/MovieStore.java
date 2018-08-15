@@ -1,11 +1,13 @@
 package com.kodilla.good.patterns.challenges;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-class MovieStore {
-    private static Map<String, List<String>> movies;
+public class MovieStore {
+    public Map<String, List<String>> getMovies() {
 
-    private Map<String, List<String>> prepareMovies() {
         List<String> ironManTranslations = new ArrayList<>();
         ironManTranslations.add("Żelazny Człowiek");
         ironManTranslations.add("Iron Man");
@@ -18,18 +20,11 @@ class MovieStore {
         flashTranslations.add("Błyskawica");
         flashTranslations.add("Flash");
 
-        Map<String, List<String>> moviesTitlesWithTranslations = new HashMap<>();
-        moviesTitlesWithTranslations.put("IM", ironManTranslations);
-        moviesTitlesWithTranslations.put("AV", avengersTranslations);
-        moviesTitlesWithTranslations.put("FL", flashTranslations);
+        Map<String, List<String>> booksTitlesWithTranslations = new HashMap<>();
+        booksTitlesWithTranslations.put("IM", ironManTranslations);
+        booksTitlesWithTranslations.put("AV", avengersTranslations);
+        booksTitlesWithTranslations.put("FL", flashTranslations);
 
-        return moviesTitlesWithTranslations;
-    }
-
-    public MovieStore() {
-    }
-
-    public Map<String, List<String>> getMovies() {
-        return movies == null ? movies = prepareMovies() : movies;
+        return booksTitlesWithTranslations;
     }
 }
