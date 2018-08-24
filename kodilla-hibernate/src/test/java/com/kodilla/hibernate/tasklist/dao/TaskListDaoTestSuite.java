@@ -18,44 +18,39 @@ import java.util.List;
 @SpringBootTest
 public class TaskListDaoTestSuite {
     @Autowired
-    TaskListDao taskListDao;
-
+    private TaskListDao taskListDao;
     @Autowired
-    TaskDao taskDao;
-
-    private static final String TASKLIST_NAME = "testTaskListName";
-    private static final String TASKLIST_DESCRIPTION = "testTaskListDescription";
-    private static final String TASK_DESCRIPTION_1 = "Test: Learn Hibernate";
-    private static final String TASK_DESCRIPTION_2 = "Test: Write some entities";
-
+    private TaskDao taskDao;
+    private static final String LISTNAME = "First List";
 
     @Test
-    public void Should_FindTaskListByName() {
+    public void testTaskListDaoFindByListName() {
         //Given
-        TaskList taskList = new TaskList(TASKLIST_NAME, TASKLIST_DESCRIPTION);
+        TaskList taskList = new TaskList(LISTNAME, "This is the first list of tasks!");
         taskListDao.save(taskList);
+        String listName = taskList.getListName();
 
         //When
-        List<TaskList> resultTaskList = taskListDao.findByListName(TASKLIST_NAME);
+        List<TaskList> readTaskList = taskListDao.findByListName(listName);
 
         //Then
-        Assert.assertEquals(1, resultTaskList.size());
+        Assert.assertEquals(1, readTaskList.size());
 
-        //CleanUp
-        int resultId = resultTaskList.get(0).getId();
-        taskListDao.delete(resultId);
+        //Cleanup
+        int id = readTaskList.get(0).getId();
+        taskListDao.delete(id);
     }
 
     @Test
     public void testTaskListDaoSaveWithTasks() {
         //Given
-        Task task = new Task(TASK_DESCRIPTION_1, 14);
-        Task task2 = new Task(TASK_DESCRIPTION_2, 3);
+        Task task = new Task("Test: Learn Hibernate", 14);
+        Task task2 = new Task("Test: Write some entities", 3);
         TaskFinancialDetails tfd = new TaskFinancialDetails(new BigDecimal(20), false);
         TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
         task.setTaskFinancialDetails(tfd);
         task2.setTaskFinancialDetails(tfd2);
-        TaskList taskList = new TaskList(TASKLIST_NAME, TASKLIST_DESCRIPTION);
+        TaskList taskList = new TaskList(LISTNAME, "ToDo tasks");
         taskList.getTasks().add(task);
         taskList.getTasks().add(task2);
         task.setTaskList(taskList);
@@ -78,7 +73,7 @@ public class TaskListDaoTestSuite {
         Task task1 = new Task("Test: Study Hibernate", 3);
         Task task2 = new Task("Test: Practice Named Queries", 6);
         Task task3 = new Task("Test: Study native queries", 7);
-        Task task4 = new Task("Test: Makse some tests", 13);
+        Task task4 = new Task("Test: Make some tests", 13);
 
         TaskFinancialDetails tfd1 = new TaskFinancialDetails(new BigDecimal(5), false);
         TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
@@ -90,7 +85,7 @@ public class TaskListDaoTestSuite {
         task3.setTaskFinancialDetails(tfd3);
         task4.setTaskFinancialDetails(tfd4);
 
-        TaskList taskList = new TaskList(TASKLIST_NAME, "ToDo tasks");
+        TaskList taskList = new TaskList(LISTNAME, "ToDo tasks");
         taskList.getTasks().add(task1);
         taskList.getTasks().add(task2);
         taskList.getTasks().add(task3);
@@ -121,5 +116,4 @@ public class TaskListDaoTestSuite {
             taskListDao.delete(id);
         }
     }
-
 }

@@ -36,6 +36,9 @@ public class LibraryTestSuite {
         library.getBooks().remove(book1);
 
         //Then
+        System.out.println(library);
+        System.out.println(clonedLibrary);
+        System.out.println(deepClonedLibrary);
         Assert.assertEquals(2, library.getBooks().size());
         Assert.assertEquals(2, clonedLibrary.getBooks().size());
         Assert.assertEquals(3, deepClonedLibrary.getBooks().size());
@@ -43,5 +46,57 @@ public class LibraryTestSuite {
         Assert.assertNotEquals(library.getBooks().size(),deepClonedLibrary.getBooks().size());
     }
 
+    @Test
+    public void testShallowCopy() {
+        //Given
+        Library library = new Library("Library number 1");
+        Book book1 = new Book("title1", "author1", LocalDate.now().minusYears(1));
+        Book book2 = new Book("title2", "author2", LocalDate.now().minusYears(2));
+        library.getBooks().add(book1);
+        library.getBooks().add(book2);
 
+        //When
+        Library cloneLibrary = null;
+        try {
+            cloneLibrary = library.shallowCopy();
+            cloneLibrary.setName("Library number 2");
+        } catch(CloneNotSupportedException e) {
+            System.out.println(e);
+        }
+
+        library.getBooks().remove(book2);
+
+        //Then
+        System.out.println(library);
+        System.out.println(cloneLibrary);
+        Assert.assertEquals(1, library.getBooks().size());
+        Assert.assertEquals(1, cloneLibrary.getBooks().size());
+    }
+    @Test
+    public void testDeepCopy() {
+        //Given
+        Library library = new Library("Library number 1");
+        Book book1 = new Book("title1", "author1", LocalDate.now().minusYears(1));
+        Book book2 = new Book("title2", "author2", LocalDate.now().minusYears(2));
+        library.getBooks().add(book1);
+        library.getBooks().add(book2);
+
+        //When
+        Library deepCloneLibrary = null;
+        try {
+            deepCloneLibrary = library.deepCopy();
+            deepCloneLibrary.setName("Library number 2");
+        } catch(CloneNotSupportedException e) {
+            System.out.println(e);
+        }
+
+        library.getBooks().remove(book2);
+
+        //Then
+        System.out.println(library);
+        System.out.println(deepCloneLibrary);
+        Assert.assertEquals(2, deepCloneLibrary.getBooks().size());
+        Assert.assertNotEquals(library.getBooks(), deepCloneLibrary.getBooks());
+    }
 }
+
