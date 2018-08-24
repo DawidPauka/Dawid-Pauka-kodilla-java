@@ -1,50 +1,44 @@
 package com.kodilla.hibernate.tasklist;
 
+import com.kodilla.hibernate.task.Task;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
+
+@Data
+@NoArgsConstructor
 @Entity
-@Table(name="TASKLISTS")
-public class TaskList {
-    private int id;
-    private String listName;
-    private String description;
-
-    public TaskList() {
-    }
-
-    public TaskList(String listName, String description) {
-        this.listName = listName;
-        this.description = description;
-    }
+@Table(name = "TASKLISTS")
+public final class TaskList {
 
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name="ID", unique=true)
-    public int getId() {
-        return id;
-    }
+    @Column(name = "ID", unique = true)
+    private int id;
 
-    @Column(name="LISTNAME")
-    public String getListName() {
-        return listName;
-    }
+    @NotNull
+    @Column(name = "LISTNAME")
+    private String listName;
 
-    @Column(name="DESCRIPTION")
-    public String getDescription() {
-        return description;
-    }
+    @Column(name = "DESCRIPTION")
+    private String description;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @OneToMany(
+            targetEntity = Task.class,
+            mappedBy = "taskList",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    List<Task> tasks = new ArrayList<>();
 
-    public void setListName(String listName) {
+    public TaskList(String listName, String description) {
         this.listName = listName;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
     }
 }

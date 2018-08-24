@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class LibraryTestSuite {
 
     @Test
-    public void testGetBooks(){
+    public void testGetBooks()throws Exception{
         //Given
         Library library = new Library("Księgozbiór");
         Book book1 = new Book("Tytuł 1","Autor 1",LocalDate.of(1987,1,1));
@@ -42,4 +42,6 @@ public class LibraryTestSuite {
         Assert.assertEquals(library.getBooks().size(),clonedLibrary.getBooks().size());
         Assert.assertNotEquals(library.getBooks().size(),deepClonedLibrary.getBooks().size());
     }
+
+
 }

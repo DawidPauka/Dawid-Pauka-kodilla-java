@@ -1,5 +1,10 @@
 class Calc {
-    public Integer add(Integer a, Integer b) {
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public Integer add (Integer a, Integer b) {
         return a + b;
     }
 }
