@@ -20,7 +20,7 @@ public class TaskDaoTestSuite {
     private static final String DESCRIPTION = "Test: Learn Hibernate";
 
     @Test
-    public void Should_SaveTask() {
+    public void testTaskDaoSave() {
         //Given
         Task task = new Task(DESCRIPTION, 7);
 
@@ -32,30 +32,29 @@ public class TaskDaoTestSuite {
         Task readTask = taskDao.findOne(id);
         Assert.assertEquals(id, readTask.getId());
 
-        //CleanUp
+        //Cleanup
         taskDao.delete(id);
     }
-
     @Test
-    public void Should_FindTaskByDuration() {
+    public void testTaskDaoFindByDuration() {
         //Given
         Task task = new Task(DESCRIPTION, 7);
         taskDao.save(task);
         int duration = task.getDuration();
 
         //When
-        List<Task> readTasks = taskDao.findByDuration(duration);
+        List<Task> readTask = taskDao.findByDuration(duration);
 
         //Then
-        Assert.assertEquals(1, readTasks.size());
+        Assert.assertEquals(1, readTask.size());
 
-        //CleanUp
-        int id = readTasks.get(0).getId();
+        //Cleanup
+        int id = readTask.get(0).getId();
         taskDao.delete(id);
     }
 
     @Test
-    public void Should_SaveTaskDaoWithFinancialDetails() {
+    public void testTaskDaoSaveWithFinancialDetails() {
         //Given
         Task task = new Task(DESCRIPTION, 30);
         task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
