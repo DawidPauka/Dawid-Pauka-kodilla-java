@@ -4,8 +4,8 @@ class Calc {
         return super.clone();
     }
 
-    public Integer add (Integer a, Integer b) {
-        return a + b;
+    public Integer add (Integer a, Integer b,Integer c) {
+        return a + b + c ;
     }
 }
 

@@ -9,8 +9,10 @@ public class trainingTestSuite {
     public void shouldAddCorrectly() {
         Calc calc = new Calc();
 
-        int result = calc.add(5, 15);
+        int result = calc.add(5, 10, 20);
 
-        Assert.assertEquals(20, result);
+        Assert.assertEquals(35, result);
+
+        System.out.println("result = " + result);
     }
 }
