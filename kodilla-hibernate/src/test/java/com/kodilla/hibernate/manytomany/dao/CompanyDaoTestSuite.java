@@ -97,25 +97,10 @@ public class CompanyDaoTestSuite {
     @Test
     public void shouldFindCompaniesByNameFirst3Characters() {
         //Given
-        Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
-
         Company softwareMachine = new Company("Software Machine");
         Company dataMaesters = new Company("Data Maesters");
         Company greyMatter = new Company("Grey Matter");
 
-        softwareMachine.getEmployees().add(johnSmith);
-        dataMaesters.getEmployees().add(stephanieClarckson);
-        dataMaesters.getEmployees().add(lindaKovalsky);
-        greyMatter.getEmployees().add(johnSmith);
-        greyMatter.getEmployees().add(lindaKovalsky);
-
-        johnSmith.getCompanies().add(softwareMachine);
-        johnSmith.getCompanies().add(greyMatter);
-        stephanieClarckson.getCompanies().add(dataMaesters);
-        lindaKovalsky.getCompanies().add(dataMaesters);
-        lindaKovalsky.getCompanies().add(greyMatter);
 
         companyDao.save(softwareMachine);
         int softwareMachineId = softwareMachine.getId();
@@ -128,12 +113,10 @@ public class CompanyDaoTestSuite {
         List<Company> companiesWithTheNameBeginningWith =
                 companyDao. findByNameBeginningWith("Gre");
 
-
-
         //Then
 
         Assert.assertEquals(1, companiesWithTheNameBeginningWith.size());
-
+        Assert.assertEquals("Gre", companiesWithTheNameBeginningWith.get(0).getName().substring(0, 3));
         //CleanUp
         try {
             companyDao.delete(softwareMachineId);
