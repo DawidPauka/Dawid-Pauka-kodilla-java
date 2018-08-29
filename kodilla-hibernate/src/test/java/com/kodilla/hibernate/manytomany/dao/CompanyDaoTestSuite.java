@@ -72,6 +72,10 @@ public class CompanyDaoTestSuite {
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
+        employeeDao.save(johnSmith);
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(lindaKovalsky);
+
         //When
         List<Employee> employeesWithTheName = employeeDao. findByName("John");
 
@@ -79,10 +83,19 @@ public class CompanyDaoTestSuite {
         Assert.assertEquals(2, employeesWithTheName.size());
         System.out.println(employeesWithTheName);
 
+        //CleanUp
+        try {
+            employeeDao.delete(johnSmith);
+            employeeDao.delete(stephanieClarckson);
+            employeeDao.delete(lindaKovalsky);
+        } catch (Exception e) {
+            //do nothing
         }
 
+    }
+
     @Test
-    public void shouldNamedQueriesAgain() {
+    public void shouldFindCompaniesByNameFirst3Characters() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
