@@ -19,12 +19,12 @@ public class CalculatorTestSuite {
         //When robisz próby tego co chcesz testować czyli co w tej metodzie chcesz testować
         //(wykonanie testowanej metody)
 
-        int result = calculator.add(5, 10);
+        double result = calculator.add(5.5, 20);
 
         //Then
         // oczekiwany rezultat
 
-        Assert.assertEquals(15, result);
+        Assert.assertEquals(result, 25.5, 0 );
 
         System.out.println("result addition = " + result);
     }
@@ -37,10 +37,10 @@ public class CalculatorTestSuite {
         Calculator calculator = new Calculator();
 
         //When
-        int result = calculator.substract(60,100);
+        double result = calculator.substract(60,100);
 
         //Then
-        Assert.assertEquals(40, result);
+        Assert.assertEquals(result, 40, 0 );
         System.out.println("result subtraction  = " + result);
 
     }
@@ -52,10 +52,10 @@ public class CalculatorTestSuite {
         Calculator calculator = new Calculator();
 
         //When
-        int result = calculator. multiply(60,100);
+        double result = calculator. multiply(60,100);
 
         //Then
-        Assert.assertEquals(6000, result);
+        Assert.assertEquals(result, 6000, 0 );
         System.out.println("result multiplication = " + result);
 
     }
@@ -67,11 +67,40 @@ public class CalculatorTestSuite {
         Calculator calculator = new Calculator();
 
         //When
-        int result = calculator. divide(100,25);
+        double result = calculator. divide(100,25);
 
         //Then
-        Assert.assertEquals(4, result);
+        Assert.assertEquals(result, 4, 0 );
         System.out.println("result division  = " + result);
 
+
+        String hello = "Witaj ";
+        String world = "Świecie! ";
+        String powitanie = hello+world; //łączenie Stringów
+        System.out.println(powitanie);
+
+        String ja = "Slawek";
+        String ty = "Slawek";
+
+        boolean porownanie1 = ja==ty;
+        boolean porownanie2 = ja.equals(ty);
+        System.out.println(porownanie1);
+        System.out.println(porownanie2);
+
+
+        Object d = new Object();
+        Object dd = d;
+        Object refferenceToObjectY = new Object();
+
+        System.out.println(d.toString());
+        System.out.println(dd.toString());
+        System.out.println(refferenceToObjectY.toString());
+
+
+
+
+
+
+        }
+
     }
-}

@@ -4,20 +4,20 @@ class Calculator {
         return super.clone();
     }
 
-    public int add (int a, int b) {
+    public double add (double a, double b) {
         return a + b  ;
     }
 
 
-    public  int substract (int a, int b){
+    public  double substract (double a, double b){
         return  b - a;
     }
 
-    public  int multiply (int a, int b){
+    public  double multiply (double a, double b){
         return  b * a;
     }
 
-    public  int divide (int a, int b){
+    public  double divide (double a, double b){
         return  a / b;
     }
 

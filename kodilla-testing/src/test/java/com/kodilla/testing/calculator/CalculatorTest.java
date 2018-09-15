@@ -14,6 +14,16 @@ public void  test(){
 
         assertEquals(-9,result);
 
+        System.out.println("result substraction  = " + result);
+
+        Calculator calculator1 = new Calculator(45,50);
+
+        int result1 = calculator1.addAToB  ();
+
+        assertEquals(95,result1);
+
+        System.out.println("result addition = " + result1);
+
 
     }
 }
