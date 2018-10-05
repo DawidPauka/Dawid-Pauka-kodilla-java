@@ -1,8 +1,5 @@
 class Calculator {
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
+
 
     public double add (double a, double b) {
         return a + b  ;

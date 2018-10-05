@@ -14,6 +14,8 @@ public class SearchDto {
         return timetableFrom;
     }
 
+
+
     public FlightToDto getTimetableTo() {
         return timetableTo;
     }

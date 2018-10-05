@@ -11,6 +11,7 @@ public class SearchProcessor {
     public SearchDto process(SearchRequest searchRequest) {
         System.out.println("Start processing order");
 
+
         Flight timetableFrom = searchService.searchFrom(searchRequest.getCity());
         FlightToDto timetableTo = searchService.searchTo(searchRequest.getCity());
 

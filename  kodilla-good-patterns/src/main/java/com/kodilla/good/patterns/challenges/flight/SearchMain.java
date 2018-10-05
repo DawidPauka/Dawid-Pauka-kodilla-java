@@ -8,6 +8,8 @@ public class SearchMain {
 
         List<Flight> flights = new ArrayList<>();
         Flight flight1 = new Flight(new City("GDANSK"));
+
+
         flight1.addCityAsDirect(new City("WROCLAW"));
         flight1.addCityAsDirect(new City("WARSZAWA"));
         flight1.addCityInWay(new City("RADOM"), new City("WARSZAWA"));

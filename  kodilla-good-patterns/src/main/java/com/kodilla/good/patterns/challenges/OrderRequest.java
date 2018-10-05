@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenges;
 
-package com.kodilla.good.patterns.challenges;
+
 
         import java.time.LocalDateTime;
 

@@ -18,13 +18,18 @@ public class CalculatorTestSuite {
 
         //When robisz próby tego co chcesz testować czyli co w tej metodzie chcesz testować
         //(wykonanie testowanej metody)
+        //WHEN - typ i nazwa zmiennej czyli "typ result"
+        //boolean result = dawid.machaj reka()(ty wiesz jaki będzie rezultat/wynik/ w tej METODZIE, która jest zapisana w innej klasie czyli inaczej mówiąc będziesz znał
+        //WYNIK/REZULTAT pierwszego parametru z metody "machaj ręką"
+        // np. w klasie xxx metoda "machaj ręką" zwraca wartość TRUE więc pierwszym parametrem/ARGUMENTEM w sekcji THEN będzie wartość TRUE
 
-        double result = calculator.add(5.5, 20);
+        double result = calculator.add(1000, 20);
 
         //Then
         // oczekiwany rezultat
+        //asert.asertequals(PIERWSZY PARAMETR, KTÓRY ZAWSZE BĘDĘ WIEDZIAŁ JAKI JEST BO WIEM ŻE METODA XXX ZWRACA JAKĄŚ WARTOŚĆ W TYM PRZYPADKU "true",result)
 
-        Assert.assertEquals(result, 25.5, 0 );
+        Assert.assertEquals(1020,result,0 );
 
         System.out.println("result addition = " + result);
     }
@@ -95,6 +100,9 @@ public class CalculatorTestSuite {
         System.out.println(d.toString());
         System.out.println(dd.toString());
         System.out.println(refferenceToObjectY.toString());
+
+
+
 
 
 
